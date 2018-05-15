@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { IContact } from './contact/contact.model';
+
+import  contacts  from './contact/contact-list';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  contact: any;
-  contacts: any[] = [];
+  contact: IContact;
+  contacts: IContact[] = [];
 
   constructor() {
     this.initContact ();
+    this.initListOfContacts();
 
   }
 
@@ -21,7 +25,7 @@ export class AppComponent {
   }
 
   private initContact() {
-    This.contact = {
+    this.contact = {
       name: '',
       email: '',
       company: '',
@@ -30,5 +34,9 @@ export class AppComponent {
       location: '',
       notes: ''
     };
+  }
+
+  private initListOfContacts() {
+    this.contacts = contacts
   }
 }
