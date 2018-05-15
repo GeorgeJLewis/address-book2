@@ -6,10 +6,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  this.appName = 'AddressBook2';
-  className = 'custom-class';
+  contact: any;
+  contacts: any[] = [];
 
-  clickHandler() {
-    console.log('Submit button was clicked');
+  constructor() {
+    this.initContact ();
+
+  }
+
+  createContact() {
+    console.log('Create the following contact: ${JSON.stringify(this.contact)}');
+    this.contacts.push(this.contact);
+    this.initContact();
+  }
+
+  private initContact() {
+    This.contact = {
+      name: '',
+      email: '',
+      company: '',
+      role: '',
+      twitter: '',
+      location: '',
+      notes: ''
+    };
   }
 }
